@@ -10,7 +10,7 @@ before_deploy:
 deploy:
   provider: script
   script:
-    docker push elderpereira/rest-with-springboot-2
+    docker push elderpereira/rest-with-springboot2-elder:latest
   on:
     branch: main
 notifications:
