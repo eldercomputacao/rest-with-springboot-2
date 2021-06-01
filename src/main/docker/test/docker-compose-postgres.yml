@@ -1,0 +1,50 @@
+version: '3.1'
+
+services:
+  app:
+    image: 'rest-springboot2:latest'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    depends_on:
+      - database
+    ports:
+      - 28080:8080
+    networks:
+      - spring-postgres-network
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/db_exemplo
+      - SPRING_DATASOURCE_USERNAME=elder
+      - SPRING_DATASOURCE_PASSWORD=elder123
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+          
+  database:
+    image: 'postgres:13.3-alpine'
+    container_name: postgres
+    restart: always
+    ports:
+      - 5433:5432
+    networks:
+      - spring-postgres-network
+    volumes:
+      - postgres_vol:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=elder
+      - POSTGRES_PASSWORD=elder123
+      - POSTGRES_DB=db_exemplo
+      
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - 18080:8080
+    networks:
+      - spring-postgres-network
+
+networks:
+  spring-postgres-network:
+    driver: bridge
+    
+volumes:
+  postgres_vol:
