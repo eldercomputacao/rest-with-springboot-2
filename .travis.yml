@@ -1,7 +1,7 @@
 language: bash
 services: docker
 before_install:
-  - cd src/main/docker/test
+  - cd src/main/docker/test/versao1
   - echo "We are in the Docker folder !!!"
 script:
   - docker-compose build
