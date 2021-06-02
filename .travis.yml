@@ -4,7 +4,7 @@ before_install:
   - cd src/main/docker/test/versao1
   - echo "We are in the Docker folder !!!"
 script:
-  - docker-compose -f docker-compose-mysql.yml build
+  - docker-compose build
 before_deploy:
   - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
 deploy:
