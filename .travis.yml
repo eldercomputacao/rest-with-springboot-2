@@ -10,7 +10,10 @@ before_deploy:
 deploy:
   provider: script
   script:
-    docker push elderpereira/rest-with-springboot2-elder:latest
+    docker push elderpereira/rest-springboot2:latest;
+    docker push elderpereira/mysql-springboot2:latest;
+    docker push elderpereira/adminer-springboot2:latest;
+
   on:
     branch: main
 notifications:
