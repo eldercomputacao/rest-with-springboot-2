@@ -32,5 +32,6 @@ public class Book implements Serializable {
 	private String title;
 	private Double price;
 	private LocalDate launch_date;
+	private String nameAuthor;
 	
 }
