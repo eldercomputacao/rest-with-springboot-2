@@ -43,6 +43,7 @@ public class User implements UserDetails, Serializable {
 	private Boolean accountNonLocked;
 	private Boolean credentialsNonExpired;
 	private Boolean enabled;
+	private String value;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "tb_user_permission", 
