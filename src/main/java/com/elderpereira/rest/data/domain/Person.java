@@ -33,5 +33,6 @@ public class Person implements Serializable {
 	private String email;
 	private String address;
 	private Boolean enable;
+	private String value;
 	
 }
